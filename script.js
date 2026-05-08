@@ -33,10 +33,9 @@ const translations = {
         openNav: "Open navigation menu",
         closeNav: "Close navigation menu",
         skip: "Skip",
-        nav: ["Home", "About", "Services", "LGS", "Projects", "Collaborators", "Contact"],
+        nav: ["Home", "About", "Services", "LGS", "Collaborators", "Contact"],
         heroPhrases: ["YOU DREAM IT", "WE BUILD IT"],
         quoteButton: "Request a quote",
-        viewWorkButton: "View work",
         quoteSubject: "Project request - DreamBouw Group",
         contactBody: "Hello DreamBouw Group,\n\nI would like to discuss a project.\n\nProject type:\nLocation:\nTimeline:\nMessage:\n",
         aboutTitle: "About DreamBouwGroup",
@@ -81,7 +80,6 @@ const translations = {
         lgsIntro: "Light Gauge Steel (LGS) is a modern construction system based on cold-formed steel profiles. These elements are precisely engineered and assembled to create a strong, stable structural frame.",
         lgsItems: ["High structural strength, calculated according to Eurocodes", "Excellent fire resistance (non-combustible material)", "High resistance to moisture, mold, and pests", "Stable over time - no cracking, shrinking, or warping", "Designed to withstand wind and structural loads"],
         lgsFinal: "In short, LGS is not about building lighter - it's about building smarter, with controlled quality and long-term durability.",
-        projectsTitle: "Our Work",
         collaboratorsTitle: "Collaborators",
         contactTitle: "Contact",
         contactText: "Tell us what you want to build and we will get back to you with the next steps.",
@@ -111,10 +109,9 @@ const translations = {
         openNav: "Ouvrir le menu de navigation",
         closeNav: "Fermer le menu de navigation",
         skip: "Passer",
-        nav: ["Accueil", "A propos", "Services", "LGS", "Projets", "Collaborateurs", "Contact"],
+        nav: ["Accueil", "A propos", "Services", "LGS", "Collaborateurs", "Contact"],
         heroPhrases: ["VOUS L'IMAGINEZ", "NOUS LE CONSTRUISONS"],
         quoteButton: "Demander un devis",
-        viewWorkButton: "Voir nos projets",
         quoteSubject: "Demande de projet - DreamBouw Group",
         contactBody: "Bonjour DreamBouw Group,\n\nJe souhaite discuter d'un projet.\n\nType de projet :\nLieu :\nDelai :\nMessage :\n",
         aboutTitle: "A propos de DreamBouwGroup",
@@ -159,7 +156,6 @@ const translations = {
         lgsIntro: "Le Light Gauge Steel (LGS) est un systeme de construction moderne base sur des profiles en acier formes a froid. Ces elements sont concus avec precision et assembles pour creer une structure solide et stable.",
         lgsItems: ["Haute resistance structurelle, calculee selon les Eurocodes", "Excellente resistance au feu (materiau incombustible)", "Haute resistance a l'humidite, aux moisissures et aux nuisibles", "Stable dans le temps - sans fissuration, retrait ni deformation", "Concu pour resister au vent et aux charges structurelles"],
         lgsFinal: "En bref, le LGS ne consiste pas a construire plus leger, mais a construire plus intelligemment, avec une qualite controlee et une durabilite a long terme.",
-        projectsTitle: "Nos projets",
         collaboratorsTitle: "Collaborateurs",
         contactTitle: "Contact",
         contactText: "Dites-nous ce que vous souhaitez construire et nous vous recontacterons avec les prochaines etapes.",
@@ -189,10 +185,9 @@ const translations = {
         openNav: "Navigatiemenu openen",
         closeNav: "Navigatiemenu sluiten",
         skip: "Overslaan",
-        nav: ["Home", "Over ons", "Diensten", "LGS", "Projecten", "Partners", "Contact"],
+        nav: ["Home", "Over ons", "Diensten", "LGS", "Partners", "Contact"],
         heroPhrases: ["JIJ DROOMT HET", "WIJ BOUWEN HET"],
         quoteButton: "Offerte aanvragen",
-        viewWorkButton: "Bekijk projecten",
         quoteSubject: "Projectaanvraag - DreamBouw Group",
         contactBody: "Hallo DreamBouw Group,\n\nIk wil graag een project bespreken.\n\nType project:\nLocatie:\nTiming:\nBericht:\n",
         aboutTitle: "Over DreamBouwGroup",
@@ -237,7 +232,6 @@ const translations = {
         lgsIntro: "Light Gauge Steel (LGS) is een modern bouwsysteem op basis van koudgevormde staalprofielen. Deze elementen worden nauwkeurig ontworpen en gemonteerd tot een sterk en stabiel structureel frame.",
         lgsItems: ["Hoge structurele sterkte, berekend volgens de Eurocodes", "Uitstekende brandweerstand (niet-brandbaar materiaal)", "Hoge weerstand tegen vocht, schimmel en ongedierte", "Stabiel op lange termijn - geen scheuren, krimpen of vervormen", "Ontworpen om wind en structurele lasten te weerstaan"],
         lgsFinal: "Kort gezegd: LGS gaat niet over lichter bouwen, maar over slimmer bouwen, met gecontroleerde kwaliteit en duurzaamheid op lange termijn.",
-        projectsTitle: "Onze projecten",
         collaboratorsTitle: "Partners",
         contactTitle: "Contact",
         contactText: "Vertel ons wat u wilt bouwen en wij nemen contact op met de volgende stappen.",
@@ -267,10 +261,9 @@ const translations = {
         openNav: "Navigatiemenu openen",
         closeNav: "Navigatiemenu sluiten",
         skip: "Overslaan",
-        nav: ["Home", "Over ons", "Diensten", "LGS", "Projecten", "Partners", "Contact"],
+        nav: ["Home", "Over ons", "Diensten", "LGS", "Partners", "Contact"],
         heroPhrases: ["JIJ DROOMT HET", "WIJ BOUWEN HET"],
         quoteButton: "Offerte aanvragen",
-        viewWorkButton: "Bekijk werk",
         quoteSubject: "Projectaanvraag - DreamBouw Group",
         contactBody: "Hallo DreamBouw Group,\n\nIk wil graag een project bespreken.\n\nType project:\nLocatie:\nPlanning:\nBericht:\n",
         aboutTitle: "Over DreamBouwGroup",
@@ -315,7 +308,6 @@ const translations = {
         lgsIntro: "Light Gauge Steel (LGS) is een modern bouwsysteem op basis van koudgevormde staalprofielen. Deze elementen worden nauwkeurig ontworpen en gemonteerd tot een sterk en stabiel constructief frame.",
         lgsItems: ["Hoge constructieve sterkte, berekend volgens de Eurocodes", "Uitstekende brandwerendheid (niet-brandbaar materiaal)", "Hoge weerstand tegen vocht, schimmel en ongedierte", "Stabiel op lange termijn - geen scheuren, krimpen of vervormen", "Ontworpen om wind en constructieve belastingen te weerstaan"],
         lgsFinal: "Kort gezegd: LGS gaat niet over lichter bouwen, maar over slimmer bouwen, met gecontroleerde kwaliteit en duurzaamheid op lange termijn.",
-        projectsTitle: "Ons werk",
         collaboratorsTitle: "Partners",
         contactTitle: "Contact",
         contactText: "Vertel ons wat u wilt bouwen en wij nemen contact op met de volgende stappen.",
@@ -425,7 +417,6 @@ function applyLanguage(language) {
     heroPhraseIndex = 0;
     setText("#hero-text", copy.heroPhrases[0]);
     setText(".hero-actions .button-primary", copy.quoteButton);
-    setText(".hero-actions .button-secondary", copy.viewWorkButton);
     document.querySelector(".hero-actions .button-primary")?.setAttribute("href", mailtoHref(copy.quoteSubject));
 
     setText("#about h2", copy.aboutTitle);
@@ -467,7 +458,6 @@ function applyLanguage(language) {
     setList("#lgs .lgs-list li", copy.lgsItems);
     setText("#lgs .lgs-final", copy.lgsFinal);
 
-    setText("#projects h2", copy.projectsTitle);
     setText("#collaborators h2", copy.collaboratorsTitle);
     document.querySelector(".collaborator-logo")?.setAttribute("aria-label", currentLanguage === "fr" ? "Visiter le site Flamaxmedia" : currentLanguage === "en" ? "Visit Flamaxmedia website" : "Bezoek de website van Flamaxmedia");
 

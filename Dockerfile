@@ -1,5 +1,6 @@
 FROM php:8.3-apache
 
+RUN docker-php-ext-install pdo_mysql
 RUN a2enmod headers rewrite
 
 COPY docker/apache.conf /etc/apache2/conf-available/dreambouw.conf

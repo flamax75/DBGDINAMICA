@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $messages = $pdo
-    ->query('SELECT * FROM contact_messages ORDER BY datetime(created_at) DESC, id DESC')
+    ->query('SELECT * FROM contact_messages ORDER BY created_at DESC, id DESC')
     ->fetchAll();
 
 function h(?string $value): string

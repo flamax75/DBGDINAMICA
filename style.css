@@ -499,12 +499,6 @@ h2 {
     color: white;
 }
 
-/* PROJECTS */
-.projects {
-    padding: 80px 10%;
-    background: rgba(10, 10, 10, 0.22);
-}
-
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

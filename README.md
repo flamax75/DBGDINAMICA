@@ -24,7 +24,9 @@ APP_PORT=8081 docker compose up --build
 
 - `APP_URL`: URL publica usada en metadatos SEO.
 - `CONTACT_TO`: email receptor del formulario de contacto.
-- `DATABASE_PATH`: ruta de la base de datos SQLite.
+- `DB_CONNECTION`: usa `mysql` en hosting con MySQL; usa `sqlite` para desarrollo local sin MySQL.
+- `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`: credenciales de MySQL.
+- `DATABASE_PATH`: ruta de SQLite solo para desarrollo local si no configuras MySQL.
 - `ADMIN_PASSWORD_HASH`: hash de la clave del administrador.
 
 Como el repositorio es publico, no subas `.env`. Usa `.env.example` como plantilla:
@@ -47,7 +49,21 @@ ADMIN_PASSWORD_HASH='$2y$...'
 
 ## Admin
 
-El formulario guarda los mensajes en SQLite, por defecto en `storage/database.sqlite`.
+El formulario guarda los mensajes en MySQL cuando configuras las variables `DB_*`. Con Docker se levanta una base MariaDB local automaticamente. Si configuras `DB_CONNECTION=sqlite`, usa SQLite localmente en `storage/database.sqlite`.
+
+Para DonDominio o cualquier hosting PHP + MySQL, rellena estas variables con los datos del panel del hosting:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=nombre_de_base_de_datos
+DB_USERNAME=usuario_mysql
+DB_PASSWORD=clave_mysql
+DB_CHARSET=utf8mb4
+```
+
+La tabla `contact_messages` se crea automaticamente cuando se carga la web o el panel por primera vez.
 
 Panel de administracion:
 

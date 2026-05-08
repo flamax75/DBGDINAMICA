@@ -7,26 +7,6 @@ function e(string $value): string
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
 
-function gallery_card(array $project): string
-{
-    $images = e(json_encode($project['images'], JSON_UNESCAPED_SLASHES));
-    $firstImage = e($project['images'][0]);
-    $label = e($project['label']);
-    $alt = e($project['alt']);
-    $width = (int) $project['width'];
-    $height = (int) $project['height'];
-
-    return <<<HTML
-                <div class="project-card" data-images='{$images}'>
-                    <button class="project-button" type="button" aria-label="{$label}">
-                        <img src="{$firstImage}" alt="{$alt}" width="{$width}"
-                            height="{$height}" loading="lazy" decoding="async">
-                    </button>
-                </div>
-
-HTML;
-}
-
 $contactStatus = $_GET['contact'] ?? '';
 ?>
 <!DOCTYPE html>
@@ -107,7 +87,6 @@ $contactStatus = $_GET['contact'] ?? '';
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#lgs">LGS</a></li>
-            <li><a href="#projects">Projects</a></li>
             <li><a href="#collaborators">Collaborators</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -129,7 +108,6 @@ $contactStatus = $_GET['contact'] ?? '';
                     <a class="button button-primary"
                         href="mailto:info@dreambouwgroup.com?subject=Project%20request%20-%20DreamBouw%20Group">Request a
                         quote</a>
-                    <a class="button button-secondary" href="#projects">View work</a>
                 </div>
             </div>
         </div>
@@ -518,19 +496,6 @@ $contactStatus = $_GET['contact'] ?? '';
         </div>
     </section>
 
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>Our Work</h2>
-
-            <div class="projects-grid">
-                <?php foreach ($config['featured_projects'] as $project): ?>
-<?= gallery_card($project) ?>
-                <?php endforeach; ?>
-
-            </div>
-        </div>
-    </section>
-
     <!-- COLLABORATORS -->
     <section id="collaborators" class="collaborators">
         <div class="container">
@@ -617,7 +582,7 @@ $contactStatus = $_GET['contact'] ?? '';
             'contactEmail' => $site['email'],
         ], JSON_UNESCAPED_SLASHES) ?>;
     </script>
-    <script src="script.js"></script>
+    <script src="script.js?v=20260508-2"></script>
 </body>
 
 </html>

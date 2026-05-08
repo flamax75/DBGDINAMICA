@@ -8,7 +8,7 @@ $rows = db()
     ->query('SELECT id, created_at, name, email, message FROM contact_messages ORDER BY id DESC LIMIT 20')
     ->fetchAll();
 
-echo 'Database: ' . (getenv('DATABASE_PATH') ?: storage_path('database.sqlite')) . PHP_EOL;
+echo 'Database: ' . db_description() . PHP_EOL;
 echo 'Messages: ' . count($rows) . PHP_EOL;
 
 foreach ($rows as $row) {

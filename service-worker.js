@@ -1,4 +1,4 @@
-const CACHE_NAME = "dreambouw-cache-v7";
+const CACHE_NAME = "dreambouw-cache-v8";
 const CORE_ASSETS = [
     "/",
     "/style.css",
