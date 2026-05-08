@@ -550,7 +550,7 @@ $contactStatus = $_GET['contact'] ?? '';
     <section id="contact" class="section contact">
         <div class="container">
             <h2>Contact</h2>
-            <p>Tell us what you want to build and we will get back to you with the next steps.</p>
+            <p class="contact-intro">Tell us what you want to build and we will get back to you with the next steps.</p>
             <?php if ($contactStatus === 'sent'): ?>
                 <p class="form-status form-status-success">Thank you. Your request has been received.</p>
             <?php elseif ($contactStatus === 'error'): ?>
@@ -583,14 +583,10 @@ $contactStatus = $_GET['contact'] ?? '';
                         Message
                         <textarea name="message" rows="5" required></textarea>
                     </label>
-                    <label class="form-honeypot" aria-hidden="true">
-                        Company
-                        <input type="text" name="company" tabindex="-1" autocomplete="off">
-                    </label>
                 </div>
                 <div class="contact-actions">
-                    <button class="button button-primary" type="submit">Send request</button>
-                    <a class="button button-secondary" href="mailto:<?= e($site['email']) ?>"><?= e($site['email']) ?></a>
+                    <button class="button button-primary contact-submit" type="submit">Send request</button>
+                    <a class="button button-secondary contact-email" href="mailto:<?= e($site['email']) ?>"><?= e($site['email']) ?></a>
                     <a class="button button-secondary" href="tel:<?= e($site['phone']) ?>"><?= e($site['phone_display']) ?></a>
                 </div>
             </form>

@@ -1,4 +1,4 @@
-const CACHE_NAME = "dreambouw-cache-v5";
+const CACHE_NAME = "dreambouw-cache-v7";
 const CORE_ASSETS = [
     "/",
     "/style.css",
@@ -34,12 +34,16 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
     if (event.request.method !== "GET") return;
 
+    const requestUrl = new URL(event.request.url);
+    if (requestUrl.pathname.startsWith("/admin") || requestUrl.pathname.startsWith("/api")) {
+        return;
+    }
+
     if (event.request.mode === "navigate") {
         event.respondWith(
             fetch(event.request)
                 .then((response) => {
-                    const url = new URL(event.request.url);
-                    if (url.search === "") {
+                    if (requestUrl.search === "" && (requestUrl.pathname === "/" || requestUrl.pathname === "/index.php")) {
                         const copy = response.clone();
                         caches.open(CACHE_NAME).then((cache) => cache.put("/", copy));
                     }

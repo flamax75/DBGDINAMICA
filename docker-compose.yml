@@ -6,6 +6,7 @@ services:
     environment:
       APP_URL: "${APP_URL:-http://localhost:8080/}"
       CONTACT_TO: "${CONTACT_TO:-info@dreambouwgroup.com}"
+      DATABASE_PATH: "${DATABASE_PATH:-/var/www/html/storage/database.sqlite}"
     volumes:
       - ./:/var/www/html
       - contact_storage:/var/www/html/storage

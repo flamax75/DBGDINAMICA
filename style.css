@@ -339,6 +339,12 @@ body::after {
     color: #e7c46a;
 }
 
+.button-danger:hover,
+.button-danger:focus-visible {
+    border-color: #ff4d00;
+    color: #ff4d00;
+}
+
 #hero-text:hover::after {
     width: 100px;
     opacity: 1;
@@ -678,6 +684,103 @@ h2 {
     text-decoration: none;
 }
 
+/* ADMIN */
+.admin-page {
+    min-height: 100vh;
+    background: #111;
+    color: #f7f7f7;
+}
+
+.admin-shell {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 44px 0;
+}
+
+.admin-login {
+    width: min(520px, calc(100% - 32px));
+    padding-top: 12vh;
+}
+
+.admin-shell h1 {
+    margin-bottom: 8px;
+    font-size: 2rem;
+}
+
+.admin-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.admin-messages {
+    display: grid;
+    gap: 16px;
+}
+
+.admin-message {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 4px solid #e7c46a;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 18px;
+}
+
+.admin-message.is-read {
+    border-left-color: rgba(255, 255, 255, 0.22);
+    opacity: 0.78;
+}
+
+.admin-message header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.admin-message-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.admin-message h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.admin-message dl {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0 0 14px;
+}
+
+.admin-message dt {
+    color: #aaa;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+}
+
+.admin-message dd {
+    margin: 4px 0 0;
+    overflow-wrap: anywhere;
+}
+
+.admin-message a {
+    color: #e7c46a;
+}
+
+.admin-message-body {
+    margin: 0;
+    color: #eee;
+    white-space: normal;
+}
+
 .site-footer a:hover,
 .site-footer a:focus-visible {
     text-decoration: underline;
@@ -993,6 +1096,15 @@ h2 {
     }
 
     .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-header,
+    .admin-message header {
+        flex-direction: column;
+    }
+
+    .admin-message dl {
         grid-template-columns: 1fr;
     }
 

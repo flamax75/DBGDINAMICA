@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/env.php';
+
 return [
     'site' => [
         'name' => 'DreamBouw Group',

@@ -85,6 +85,7 @@ const translations = {
         collaboratorsTitle: "Collaborators",
         contactTitle: "Contact",
         contactText: "Tell us what you want to build and we will get back to you with the next steps.",
+        sendRequestButton: "Send request",
         emailButton: "Email DreamBouw",
         footer: "&copy; 2026 DreamBouw Group. All rights reserved. Website by <a href=\"https://flamaxmedia.es\" target=\"_blank\" rel=\"noopener noreferrer\">Flamaxmedia</a>.",
         galleryLabels: {
@@ -162,6 +163,7 @@ const translations = {
         collaboratorsTitle: "Collaborateurs",
         contactTitle: "Contact",
         contactText: "Dites-nous ce que vous souhaitez construire et nous vous recontacterons avec les prochaines etapes.",
+        sendRequestButton: "Envoyer la demande",
         emailButton: "Envoyer un email",
         footer: "&copy; 2026 DreamBouw Group. Tous droits reserves. Site web par <a href=\"https://flamaxmedia.es\" target=\"_blank\" rel=\"noopener noreferrer\">Flamaxmedia</a>.",
         galleryLabels: {
@@ -239,6 +241,7 @@ const translations = {
         collaboratorsTitle: "Partners",
         contactTitle: "Contact",
         contactText: "Vertel ons wat u wilt bouwen en wij nemen contact op met de volgende stappen.",
+        sendRequestButton: "Aanvraag verzenden",
         emailButton: "Mail DreamBouw",
         footer: "&copy; 2026 DreamBouw Group. Alle rechten voorbehouden. Website door <a href=\"https://flamaxmedia.es\" target=\"_blank\" rel=\"noopener noreferrer\">Flamaxmedia</a>.",
         galleryLabels: {
@@ -316,6 +319,7 @@ const translations = {
         collaboratorsTitle: "Partners",
         contactTitle: "Contact",
         contactText: "Vertel ons wat u wilt bouwen en wij nemen contact op met de volgende stappen.",
+        sendRequestButton: "Aanvraag verzenden",
         emailButton: "Mail DreamBouw",
         footer: "&copy; 2026 DreamBouw Group. Alle rechten voorbehouden. Website door <a href=\"https://flamaxmedia.es\" target=\"_blank\" rel=\"noopener noreferrer\">Flamaxmedia</a>.",
         galleryLabels: {
@@ -468,9 +472,9 @@ function applyLanguage(language) {
     document.querySelector(".collaborator-logo")?.setAttribute("aria-label", currentLanguage === "fr" ? "Visiter le site Flamaxmedia" : currentLanguage === "en" ? "Visit Flamaxmedia website" : "Bezoek de website van Flamaxmedia");
 
     setText("#contact h2", copy.contactTitle);
-    setText("#contact p", copy.contactText);
-    setText("#contact .button-primary", copy.emailButton);
-    document.querySelector("#contact .button-primary")?.setAttribute("href", mailtoHref(copy.quoteSubject, copy.contactBody));
+    setText("#contact .contact-intro", copy.contactText);
+    setText("#contact .contact-submit", copy.sendRequestButton);
+    document.querySelector("#contact .contact-email")?.setAttribute("href", mailtoHref(copy.quoteSubject, copy.contactBody));
     setHTML(".site-footer p", copy.footer);
 
     document.querySelector(".lightbox-dialog")?.setAttribute("aria-label", copy.lightbox.gallery);
@@ -799,7 +803,14 @@ if (intro && video) {
 }
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/service-worker.js")
-            .catch((error) => console.log("Error Service Worker:", error));
+        navigator.serviceWorker.getRegistrations()
+            .then((registrations) => Promise.all(registrations.map((registration) => registration.unregister())))
+            .catch((error) => console.log("Error removing Service Worker:", error));
+
+        if ("caches" in window) {
+            caches.keys()
+                .then((keys) => Promise.all(keys.map((key) => caches.delete(key))))
+                .catch((error) => console.log("Error clearing cache:", error));
+        }
     });
 }
