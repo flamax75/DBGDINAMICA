@@ -597,6 +597,65 @@ h2 {
     text-decoration: none;
 }
 
+.contact-form {
+    max-width: 840px;
+    margin-top: 22px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.contact-form label {
+    display: grid;
+    gap: 8px;
+    color: #f2f2f2;
+    font-weight: 700;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.34);
+    color: white;
+    font: inherit;
+    padding: 12px 14px;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #e7c46a;
+}
+
+.form-span {
+    grid-column: 1 / -1;
+}
+
+.form-honeypot {
+    display: none;
+}
+
+.form-status {
+    max-width: 840px;
+    padding: 12px 14px;
+    border-radius: 4px;
+}
+
+.form-status-success {
+    background: rgba(42, 150, 88, 0.18);
+    border: 1px solid rgba(42, 150, 88, 0.42);
+}
+
+.form-status-error {
+    background: rgba(255, 77, 0, 0.16);
+    border: 1px solid rgba(255, 77, 0, 0.38);
+}
+
 .contact-actions {
     justify-content: flex-start;
     margin-top: 22px;
@@ -931,6 +990,10 @@ h2 {
     .hero-actions,
     .contact-actions {
         width: 100%;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
     }
 
     .button {

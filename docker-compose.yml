@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    ports:
+      - "${APP_PORT:-8080}:80"
+    environment:
+      APP_URL: "${APP_URL:-http://localhost:8080/}"
+      CONTACT_TO: "${CONTACT_TO:-info@dreambouwgroup.com}"
+    volumes:
+      - ./:/var/www/html
+      - contact_storage:/var/www/html/storage
+
+volumes:
+  contact_storage:

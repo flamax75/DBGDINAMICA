@@ -1,7 +1,6 @@
-const CACHE_NAME = "dreambouw-cache-v4";
+const CACHE_NAME = "dreambouw-cache-v5";
 const CORE_ASSETS = [
     "/",
-    "/index.html",
     "/style.css",
     "/script.js",
     "/manifest.json",
@@ -39,11 +38,14 @@ self.addEventListener("fetch", (event) => {
         event.respondWith(
             fetch(event.request)
                 .then((response) => {
-                    const copy = response.clone();
-                    caches.open(CACHE_NAME).then((cache) => cache.put("/index.html", copy));
+                    const url = new URL(event.request.url);
+                    if (url.search === "") {
+                        const copy = response.clone();
+                        caches.open(CACHE_NAME).then((cache) => cache.put("/", copy));
+                    }
                     return response;
                 })
-                .catch(() => caches.match("/index.html"))
+                .catch(() => caches.match("/"))
         );
         return;
     }

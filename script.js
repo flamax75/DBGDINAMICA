@@ -358,7 +358,8 @@ function setList(selector, values) {
 }
 
 function mailtoHref(subject, body = "") {
-    const href = `mailto:info@dreambouwgroup.com?subject=${encodeURIComponent(subject)}`;
+    const contactEmail = window.DREAMBOUW_DATA?.contactEmail || "info@dreambouwgroup.com";
+    const href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}`;
     return body ? `${href}&body=${encodeURIComponent(body)}` : href;
 }
 
@@ -526,7 +527,7 @@ if (toggle && nav) {
 /* ========================= */
 /* SERVICE GALLERIES */
 /* ========================= */
-const serviceGalleries = {
+const serviceGalleries = window.DREAMBOUW_DATA?.serviceGalleries || {
     construction: [
         "images/construction/construction-1.jpg",
         "images/construction/construction-2.jpg",

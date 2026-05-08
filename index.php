@@ -1,27 +1,55 @@
+<?php
+$config = require __DIR__ . '/data/site.php';
+$site = $config['site'];
+
+function e(string $value): string
+{
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+}
+
+function gallery_card(array $project): string
+{
+    $images = e(json_encode($project['images'], JSON_UNESCAPED_SLASHES));
+    $firstImage = e($project['images'][0]);
+    $label = e($project['label']);
+    $alt = e($project['alt']);
+    $width = (int) $project['width'];
+    $height = (int) $project['height'];
+
+    return <<<HTML
+                <div class="project-card" data-images='{$images}'>
+                    <button class="project-button" type="button" aria-label="{$label}">
+                        <img src="{$firstImage}" alt="{$alt}" width="{$width}"
+                            height="{$height}" loading="lazy" decoding="async">
+                    </button>
+                </div>
+
+HTML;
+}
+
+$contactStatus = $_GET['contact'] ?? '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DreamBouw Group</title>
-    <meta name="description"
-        content="DreamBouw Group delivers construction, renovations, project management, interior design, Garden Living Units, and Light Gauge Steel solutions with durable, professional execution.">
-    <link rel="canonical" href="https://dreambouwgroup.com/">
+    <title><?= e($site['name']) ?></title>
+    <meta name="description" content="<?= e($site['description']) ?>">
+    <link rel="canonical" href="<?= e($site['url']) ?>">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="DreamBouw Group">
-    <meta property="og:description"
-        content="Construction, renovations, project management, interior design, Garden Living Units, and Light Gauge Steel solutions.">
-    <meta property="og:url" content="https://dreambouwgroup.com/">
-    <meta property="og:image" content="https://dreambouwgroup.com/images/fondo.jpg">
-    <meta property="og:site_name" content="DreamBouw Group">
+    <meta property="og:title" content="<?= e($site['name']) ?>">
+    <meta property="og:description" content="<?= e($site['description']) ?>">
+    <meta property="og:url" content="<?= e($site['url']) ?>">
+    <meta property="og:image" content="<?= e(rtrim($site['url'], '/') . '/images/fondo.jpg') ?>">
+    <meta property="og:site_name" content="<?= e($site['name']) ?>">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="DreamBouw Group">
-    <meta name="twitter:description"
-        content="Construction, renovations, project management, interior design, Garden Living Units, and Light Gauge Steel solutions.">
-    <meta name="twitter:image" content="https://dreambouwgroup.com/images/fondo.jpg">
+    <meta name="twitter:title" content="<?= e($site['name']) ?>">
+    <meta name="twitter:description" content="<?= e($site['description']) ?>">
+    <meta name="twitter:image" content="<?= e(rtrim($site['url'], '/') . '/images/fondo.jpg') ?>">
 
     <link rel="preload" href="images/fondo.jpg" as="image">
     <link rel="stylesheet" href="style.css">
@@ -38,16 +66,16 @@
         {
             "@context": "https://schema.org",
             "@type": "ConstructionBusiness",
-            "name": "DreamBouw Group",
-            "url": "https://dreambouwgroup.com/",
-            "logo": "https://dreambouwgroup.com/images/logo.jpg",
-            "email": "info@dreambouwgroup.com",
-            "telephone": "+32494583589",
+            "name": "<?= e($site['name']) ?>",
+            "url": "<?= e($site['url']) ?>",
+            "logo": "<?= e(rtrim($site['url'], '/') . '/images/logo.jpg') ?>",
+            "email": "<?= e($site['email']) ?>",
+            "telephone": "<?= e($site['phone']) ?>",
             "founder": {
                 "@type": "Person",
                 "name": "Vlad Maxim"
             },
-            "description": "Construction, renovations, project management, interior design, Garden Living Units, and Light Gauge Steel solutions."
+            "description": "<?= e($site['description']) ?>"
         }
     </script>
 </head>
@@ -495,54 +523,9 @@
             <h2>Our Work</h2>
 
             <div class="projects-grid">
-
-                <div class="project-card"
-                    data-images='["images/project1.jpg","images/project1-2.jpg","images/project1-3.jpg","images/project1-4.jpg"]'>
-                    <button class="project-button" type="button" aria-label="Open construction project gallery">
-                        <img src="images/project1.jpg" alt="DreamBouw construction project exterior view" width="1536"
-                            height="1152" loading="lazy" decoding="async">
-                    </button>
-                </div>
-
-                <div class="project-card"
-                    data-images='["images/project2.jpg","images/project2-2.jpg","images/project2-3.jpg","images/project2-4.jpg"]'>
-                    <button class="project-button" type="button" aria-label="Open renovation project gallery">
-                        <img src="images/project2.jpg" alt="DreamBouw renovation project detail" width="1152"
-                            height="1536" loading="lazy" decoding="async">
-                    </button>
-                </div>
-
-                <div class="project-card"
-                    data-images='["images/project3.jpg","images/project3-2.jpg","images/project3-3.jpg","images/project3-4.jpg"]'>
-                    <button class="project-button" type="button" aria-label="Open structural construction gallery">
-                        <img src="images/project3.jpg" alt="DreamBouw structural construction work" width="1536"
-                            height="1152" loading="lazy" decoding="async">
-                    </button>
-                </div>
-
-                <div class="project-card"
-                    data-images='["images/project4.jpg","images/project4-2.jpg","images/project4-3.jpg","images/project4-4.jpg"]'>
-                    <button class="project-button" type="button" aria-label="Open interior and finishing gallery">
-                        <img src="images/project4.jpg" alt="DreamBouw interior and finishing project" width="1536"
-                            height="1152" loading="lazy" decoding="async">
-                    </button>
-                </div>
-
-                <div class="project-card"
-                    data-images='["images/project5.jpg","images/project5-2.jpg","images/project5-3.jpg","images/project5-4.jpg"]'>
-                    <button class="project-button" type="button" aria-label="Open residential building gallery">
-                        <img src="images/project5.jpg" alt="DreamBouw residential building project" width="1536"
-                            height="1152" loading="lazy" decoding="async">
-                    </button>
-                </div>
-
-                <div class="project-card"
-                    data-images='["images/project6.jpg","images/project6-2.jpg","images/project6-3.jpg","images/project6-4.jpg"]'>
-                    <button class="project-button" type="button" aria-label="Open completed construction gallery">
-                        <img src="images/project6.jpg" alt="DreamBouw completed construction project" width="1536"
-                            height="864" loading="lazy" decoding="async">
-                    </button>
-                </div>
+                <?php foreach ($config['featured_projects'] as $project): ?>
+<?= gallery_card($project) ?>
+                <?php endforeach; ?>
 
             </div>
         </div>
@@ -568,19 +551,55 @@
         <div class="container">
             <h2>Contact</h2>
             <p>Tell us what you want to build and we will get back to you with the next steps.</p>
-            <div class="contact-actions">
-                <a class="button button-primary"
-                    href="mailto:info@dreambouwgroup.com?subject=Project%20request%20-%20DreamBouw%20Group&body=Hello%20DreamBouw%20Group,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20a%20project.%0D%0A%0D%0AProject%20type:%0D%0ALocation:%0D%0ATimeline:%0D%0AMessage:%0D%0A">Email
-                    DreamBouw</a>
-                <a class="button button-secondary" href="mailto:info@dreambouwgroup.com">info@dreambouwgroup.com</a>
-                <a class="button button-secondary" href="tel:+32494583589">+32 494 58 35 89</a>
-            </div>
+            <?php if ($contactStatus === 'sent'): ?>
+                <p class="form-status form-status-success">Thank you. Your request has been received.</p>
+            <?php elseif ($contactStatus === 'error'): ?>
+                <p class="form-status form-status-error">Please complete your name, email, and message.</p>
+            <?php endif; ?>
+
+            <form class="contact-form" action="/api/contact.php" method="post">
+                <div class="form-grid">
+                    <label>
+                        Name
+                        <input type="text" name="name" autocomplete="name" required>
+                    </label>
+                    <label>
+                        Email
+                        <input type="email" name="email" autocomplete="email" required>
+                    </label>
+                    <label>
+                        Phone
+                        <input type="tel" name="phone" autocomplete="tel">
+                    </label>
+                    <label>
+                        Project type
+                        <input type="text" name="project_type">
+                    </label>
+                    <label class="form-span">
+                        Location
+                        <input type="text" name="location">
+                    </label>
+                    <label class="form-span">
+                        Message
+                        <textarea name="message" rows="5" required></textarea>
+                    </label>
+                    <label class="form-honeypot" aria-hidden="true">
+                        Company
+                        <input type="text" name="company" tabindex="-1" autocomplete="off">
+                    </label>
+                </div>
+                <div class="contact-actions">
+                    <button class="button button-primary" type="submit">Send request</button>
+                    <a class="button button-secondary" href="mailto:<?= e($site['email']) ?>"><?= e($site['email']) ?></a>
+                    <a class="button button-secondary" href="tel:<?= e($site['phone']) ?>"><?= e($site['phone_display']) ?></a>
+                </div>
+            </form>
         </div>
     </section>
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2026 DreamBouw Group. All rights reserved. Website by <a href="https://flamaxmedia.es"
+            <p>&copy; <?= e($site['year']) ?> <?= e($site['name']) ?>. All rights reserved. Website by <a href="https://flamaxmedia.es"
                     target="_blank" rel="noopener noreferrer">Flamaxmedia</a>.</p>
         </div>
     </footer>
@@ -596,6 +615,12 @@
         </div>
     </div>
 
+    <script>
+        window.DREAMBOUW_DATA = <?= json_encode([
+            'serviceGalleries' => $config['service_galleries'],
+            'contactEmail' => $site['email'],
+        ], JSON_UNESCAPED_SLASHES) ?>;
+    </script>
     <script src="script.js"></script>
 </body>
 
